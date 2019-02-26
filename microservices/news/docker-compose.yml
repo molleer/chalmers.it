@@ -1,0 +1,26 @@
+version: "2"
+services:
+  db:
+    container_name: news_ms_db
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: password
+    ports:
+      - 5432:5432
+
+#  app:
+#    build:
+#      context: .
+#      dockerfile: dev.Dockerfile
+#    ports:
+#      - 5000:5000
+#    volumes:
+#      - ./:/usr/src/app
+
+  adminer:
+    container_name: news_ms_adminer
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
