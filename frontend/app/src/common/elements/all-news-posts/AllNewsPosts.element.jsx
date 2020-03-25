@@ -58,17 +58,15 @@ const dummyNews = [
 
 const AllNewsPosts = ({ news = dummyNews }) => {
   return (
-    <DigitLayout.Size width={"800px"} minWidth={"300px"}>
-      <DigitLayout.Column>
-        {news.map(newsPost => (
-          <NewsPost
-            title={newsPost.title}
-            img={newsPost.img}
-            text={newsPost.text}
-          />
-        ))}
-      </DigitLayout.Column>
-    </DigitLayout.Size>
+    <DigitLayout.Column size={{ minWidth: "300px", width: "800px" }}>
+      {news.map(newsPost => (
+        <NewsPost
+          title={newsPost.title}
+          img={newsPost.img}
+          text={newsPost.text}
+        />
+      ))}
+    </DigitLayout.Column>
   );
 };
 

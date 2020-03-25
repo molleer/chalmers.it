@@ -1,5 +1,4 @@
 import React from "react";
-import { DigitLayout } from "@cthit/react-digit-components";
 import AllNews from "../../common/elements/all-news-posts";
 import Lunch from "./elements/lunch";
 import Sponsor from "./elements/sponsor";
@@ -51,21 +50,19 @@ const SponsorsCell = styled.div`
 
 const Home = () => {
   return (
-    <DigitLayout.Padding>
-      <HomeGrid>
-        <AllNewsCell>
-          <AllNews />
-        </AllNewsCell>
-        <LunchCell>
-          <Lunch />
-        </LunchCell>
-        <SponsorsCell>
-          <Sponsor img={"/sponsor_1.png"} main />
-          <Sponsor img={"/sponsor_2.jpeg"} />
-          <Sponsor img={"/sponsor_3.png"} />
-        </SponsorsCell>
-      </HomeGrid>
-    </DigitLayout.Padding>
+    <HomeGrid>
+      <AllNewsCell>
+        <AllNews />
+      </AllNewsCell>
+      <LunchCell>
+        <Lunch />
+      </LunchCell>
+      <SponsorsCell>
+        <Sponsor img={"/sponsor_1.png"} main />
+        <Sponsor img={"/sponsor_2.jpeg"} />
+        <Sponsor img={"/sponsor_3.png"} />
+      </SponsorsCell>
+    </HomeGrid>
   );
 };
 
