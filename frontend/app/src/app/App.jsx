@@ -3,7 +3,7 @@ import {
   DigitHeader,
   DigitLayout,
   DigitButtonGroup,
-  DigitList
+  DigitList,
 } from "@cthit/react-digit-components";
 import styled from "styled-components";
 import GroupIcon from "@material-ui/icons/Group";
@@ -18,6 +18,7 @@ import Switch from "react-router-dom/es/Switch";
 import Route from "react-router-dom/es/Route";
 import News from "../use-cases/news";
 import Home from "../use-cases/home";
+import Print from "../use-cases/print";
 
 const TitleText = styled.h1`
   font-family: "Roboto", serif;
@@ -60,7 +61,7 @@ const ActionBar = () => {
           { text: "Skriv ut", startIcon: <LocalPrintshopIcon /> },
           { text: "BookIT", startIcon: <HomeIcon /> },
           { text: "Slack", startIcon: <ChatIcon /> },
-          { text: "Studiehälsa", startIcon: <HealingIcon /> }
+          { text: "Studiehälsa", startIcon: <HealingIcon /> },
         ]}
       />
     </DigitLayout.Center>
@@ -69,47 +70,47 @@ const ActionBar = () => {
 
 const committeesSubItems = [
   {
-    text: "P.R.I.T."
+    text: "P.R.I.T.",
   },
   {
-    text: "digIT"
+    text: "digIT",
   },
-  { text: "frITid" }
+  { text: "frITid" },
 ];
 
 const associationsSubItems = [
   {
-    text: "DrawIT"
+    text: "DrawIT",
   },
   {
-    text: "laggIT"
+    text: "laggIT",
   },
   {
-    text: "FikIT"
-  }
+    text: "FikIT",
+  },
 ];
 
 const divisionSubItems = [
   {
     text: "Kommitteer",
     items: committeesSubItems,
-    link: "/division/committees"
+    link: "/division/committees",
   },
   {
     text: "Föreningar",
     items: associationsSubItems,
-    link: "/division/associations"
+    link: "/division/associations",
   },
   {
     text: "Andra instanser",
-    link: "/division/other"
-  }
+    link: "/division/other",
+  },
 ];
 
 const documentSubItems = [
   { text: "Styrelsemötesprotokoll" },
   { text: "Studienämndens protokoll" },
-  { text: "Sektionsmötesprotokoll" }
+  { text: "Sektionsmötesprotokoll" },
 ];
 
 const Drawer = ({ closeDrawer }) => {
@@ -118,7 +119,7 @@ const Drawer = ({ closeDrawer }) => {
   return (
     <DigitList
       multipleExpanded
-      onClick={item => {
+      onClick={(item) => {
         history.push(item.link);
         closeDrawer();
       }}
@@ -126,7 +127,7 @@ const Drawer = ({ closeDrawer }) => {
         { text: "Sektionen", link: "/division", items: divisionSubItems },
         { text: "Dokument", link: "/documents", items: documentSubItems },
         { text: "För företag", link: "/companies" },
-        { text: "Programledningen", link: "/pl" }
+        { text: "Programledningen", link: "/pl" },
       ]}
     />
   );
@@ -136,6 +137,7 @@ const Main = () => {
   return (
     <Switch>
       <Route exact path={"/news"} component={News} />
+      <Route exact path={"/print"} component={Print} />
       <Route exact path={"/"} component={Home} />
     </Switch>
   );
@@ -147,7 +149,7 @@ const App = () => {
       headerHeight="90px"
       renderTitle={() => <Title />}
       renderHeader={() => <ActionBar />}
-      renderDrawer={closeDrawer => <Drawer closeDrawer={closeDrawer} />}
+      renderDrawer={(closeDrawer) => <Drawer closeDrawer={closeDrawer} />}
       renderMain={() => <Main />}
     />
   );

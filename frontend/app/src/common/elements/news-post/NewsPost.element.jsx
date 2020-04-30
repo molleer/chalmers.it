@@ -2,7 +2,7 @@ import React from "react";
 import {
   DigitButton,
   DigitDesign,
-  DigitText
+  DigitText,
 } from "@cthit/react-digit-components";
 import styled from "styled-components";
 
@@ -18,12 +18,12 @@ const NewsPost = ({ title, text, img }) => {
     <DigitDesign.Card>
       <DigitDesign.CardHeader hasSubTitle>
         <DigitDesign.CardTitle text={title} />
-        <DigitDesign.CardSubTitle
-          text={"Skrivet av LP för frITid för 5 dagar sedan"}
-        />
       </DigitDesign.CardHeader>
       <NewsPostImg src={img} />
       <DigitDesign.CardBody>
+        <DigitText.Subtitle
+          text={"Skrivet av LP för frITid för 5 dagar sedan"}
+        />
         <DigitText.Text text={text} />
       </DigitDesign.CardBody>
       <DigitDesign.CardButtons reverseDirection>
