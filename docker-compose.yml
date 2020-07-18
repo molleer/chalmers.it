@@ -10,10 +10,10 @@ networks:
   api:
   groups:
   router:
+  news:
 
 services:
-
-  ########### ROUTER NETWORK ########### 
+  ########### ROUTER NETWORK ###########
 
   frontend:
     build:
@@ -133,7 +133,7 @@ services:
     networks:
       - gamma
 
-  ########### GROUPS NETWORK ########### 
+  ########### GROUPS NETWORK ###########
 
   groups:
     build:
@@ -154,3 +154,17 @@ services:
     image: redis:5.0
     networks:
       - groups
+
+  news:
+    build:
+      context: ./api/services/news
+      dockerfile: dev.Dockerfile
+    image: cthit-news:dev
+    networks:
+      - api
+      - gamma
+      - news
+    environment:
+      PORT: 1234
+    volumes:
+      - ./api/services/news:/usr/src/app
