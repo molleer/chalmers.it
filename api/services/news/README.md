@@ -5,8 +5,10 @@ Manages news on chalmers.it
 ## Development
 
 ```
-  docker-compose up news news-db
+  docker-compose up news
 ```
+
+The endpoint http://localhost:5000 can be used for debugging
 
 ## Core libraries
 
