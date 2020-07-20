@@ -3,27 +3,20 @@
 exports.shorthands = undefined;
 
 exports.up = pgm => {
-    pgm.createTable("post", {
+    pgm.createTable("cat", {
         id: "id",
-        posted_by: {
-            type: "text",
+        name: {
+            type: "string",
             notNull: true
         },
-        posted_as: {
-            type: "text",
+        image_url: {
+            type: "string",
             notNull: true
         },
-        body: {
-            type: "text",
-            notNull: true
-        },
-        createdAt: {
+        created_at: {
             type: "timestamp",
             notNull: true,
             default: pgm.func("current_timestamp")
-        },
-        editedAt: {
-            type: "timestamp"
         }
     });
 };

@@ -6,7 +6,7 @@
     "scripts": {
         "migrate": "node-pg-migrate",
         "help": "ts-node-dev --help",
-        "start": "ts-node-dev src/index.ts",
+        "start": "ts-node-dev --unhandled-rejections=none src/index.ts",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "author": "",
