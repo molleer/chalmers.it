@@ -3,4 +3,5 @@ WORKDIR /usr/src/app
 COPY package.json package-lock.json ./
 RUN npm install
 COPY ./src ./src
-CMD npm run start
+COPY ./startup.sh ./startup.sh
+CMD sh ./startup.sh
