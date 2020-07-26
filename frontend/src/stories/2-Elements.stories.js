@@ -1,19 +1,48 @@
-import React from "react";
-import { TextField } from "../cthit/common/elements";
+import React, { useState } from "react";
+import { TextField, TextArea } from "../cthit/common/elements";
 export default {
     title: "Elements"
 };
 
 export const TextFields = () => {
+    const [value, setValue] = useState("");
     return (
         <>
             <label
                 style={{ verticalAlign: "top", display: "flex" }}
                 for="tfield"
             >
-                Hello
+                TextField
             </label>
-            <TextField type="password" id="tfield" placeholder="Password" />
+            <TextField
+                value={value}
+                onChange={e => setValue(e.target.value)}
+                type="email"
+                id="tfield"
+                placeholder="Email"
+            />
+        </>
+    );
+};
+
+export const TextAreas = () => {
+    const [value, setValue] = useState("");
+    return (
+        <>
+            <label
+                style={{ verticalAlign: "top", display: "flex" }}
+                for="tarea"
+            >
+                Text Area
+            </label>
+            <TextArea
+                rows={10}
+                value={value}
+                onChange={e => setValue(e.target.value)}
+                type="email"
+                id="tarea"
+                placeholder="Free Text"
+            />
         </>
     );
 };

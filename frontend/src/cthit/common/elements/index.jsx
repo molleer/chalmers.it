@@ -1,2 +1,3 @@
 import TextField from "./text-field";
-export { TextField };
+import TextArea from "./text-area";
+export { TextField, TextArea };
