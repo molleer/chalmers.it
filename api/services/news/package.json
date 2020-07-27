@@ -7,7 +7,7 @@
         "migrate": "node-pg-migrate",
         "help": "ts-node-dev --help",
         "start": "ts-node-dev --unhandled-rejections=none src/index.ts",
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "test": "mocha -r ts-node/register src/**/*.test.ts"
     },
     "author": "",
     "license": "ISC",
@@ -21,9 +21,12 @@
         "typescript": "^3.9.7"
     },
     "devDependencies": {
+        "@types/jest": "^26.0.7",
+        "@types/mocha": "^8.0.0",
         "@typescript-eslint/eslint-plugin": "^3.6.1",
         "@typescript-eslint/parser": "^3.6.1",
         "elint": "^1.11.1",
+        "mocha": "^8.0.1",
         "prettier": "^2.0.5",
         "ts-node-dev": "^1.0.0-pre.52"
     }

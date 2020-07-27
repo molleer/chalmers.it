@@ -1,24 +1,21 @@
 import express from "express";
 import pg from "pg";
 import { Cat } from "./models/Cat";
+import getQuery from "./setup/db.setup";
+import { to } from "./utils/utils";
 
 const app: express.Application = express();
-const pool = new pg.Pool({
-    user: process.env.DB_USER,
-    password: process.env.DB_PASS,
-    host: process.env.DB_HOST,
-    port: Number(process.env.DB_PORT),
-    database: process.env.DB_NAME
-});
+const query = getQuery();
 
-app.get("/", (req, res) => {
-    pool.query<Cat>("SELECT * FROM cat", [])
-        .then(val => res.json(val.rows))
-        .catch(err => {
-            console.log(err);
-            res.send("Error");
-            res.status(500);
-        });
+app.get("/", async (req, res) => {
+    const [rows, err] = await to(
+        query("SELECT * FROM cat", [], res => res.rows)
+    );
+    if (err) {
+        res.status(500).json(err);
+        return;
+    }
+    res.status(200).json(rows);
 });
 
 app.listen(process.env.PORT, () => {
