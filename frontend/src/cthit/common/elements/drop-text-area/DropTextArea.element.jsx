@@ -14,7 +14,7 @@ export const DropTextArea = props => {
     };
 
     return (
-        <>
+        <div>
             <FieldWrapper onDrop={handleUpload}>
                 <TextArea type="text" {...props} />
                 <FileUploadWrapper>
@@ -29,6 +29,6 @@ export const DropTextArea = props => {
                     />
                 </FileUploadWrapper>
             </FieldWrapper>
-        </>
+        </div>
     );
 };

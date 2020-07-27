@@ -4,8 +4,8 @@ import ReactMarkdown from "react-markdown";
 import { FormCard, Label } from "./NewsForm.style";
 import { Heading } from "../../styles/Text.styles";
 import { TextField } from "cthit/common/elements";
-import { TextArea } from "cthit/common/elements";
 import * as Yup from "yup";
+import { DropTextArea } from "cthit/common/elements";
 
 export const NewsForm = () => {
     const formik = useFormik({
@@ -31,7 +31,7 @@ export const NewsForm = () => {
                 <Label style={{ color: "red" }}>{formik.errors.title}</Label>
             ) : null}
             <Label>Innehåll</Label>
-            <TextArea
+            <DropTextArea
                 placeholder="Nyhetsinnehållet skrivs här"
                 rows={20}
                 id="body"

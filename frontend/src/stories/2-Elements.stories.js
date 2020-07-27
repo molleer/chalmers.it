@@ -49,5 +49,5 @@ export const TextAreas = () => {
 };
 
 export const DragAndDropTextArea = () => {
-    return <DropTextArea rows={10} />;
+    return <DropTextArea placeholder="Hello there" rows={10} />;
 };
