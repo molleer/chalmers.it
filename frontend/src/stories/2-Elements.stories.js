@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { TextField, TextArea } from "../cthit/common/elements";
+import { DropTextArea } from "cthit/common/elements";
 export default {
     title: "Elements"
 };
@@ -45,4 +46,8 @@ export const TextAreas = () => {
             />
         </>
     );
+};
+
+export const DragAndDropTextArea = () => {
+    return <DropTextArea rows={10} />;
 };
