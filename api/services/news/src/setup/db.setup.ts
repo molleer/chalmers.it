@@ -1,6 +1,7 @@
 import pg from "pg";
+import { queryFunction } from ".";
 
-const getQuery = () => {
+const getQuery = (): queryFunction => {
     const pool = new pg.Pool({
         user: process.env.DB_USER,
         password: process.env.DB_PASS,
