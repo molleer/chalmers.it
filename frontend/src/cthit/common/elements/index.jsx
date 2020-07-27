@@ -1,3 +1,4 @@
 import TextField from "./text-field";
 import TextArea from "./text-area";
-export { TextField, TextArea };
+import DropTextArea from "./drop-text-area";
+export { TextField, TextArea, DropTextArea };
