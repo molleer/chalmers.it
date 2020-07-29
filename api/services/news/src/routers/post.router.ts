@@ -1,9 +1,13 @@
 import { queryFunction } from "../setup";
 import * as express from "express";
-import { handleGetPosts } from "../controllers/post.controller";
+import {
+    handleGetPosts,
+    handleCreatePost
+} from "../controllers/post.controller";
 
 const getPostRouter = (router: express.Router, query: queryFunction) => {
-    router.get("/news", handleGetPosts(query));
+    router.get("/posts", handleGetPosts(query));
+    router.post("/posts", handleCreatePost(query));
     return router;
 };
 

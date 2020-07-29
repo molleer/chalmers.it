@@ -1,4 +1,4 @@
-interface Post {
+export interface Post {
     id: string;
     user_id: string;
     group_id: string;

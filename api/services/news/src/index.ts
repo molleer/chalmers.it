@@ -1,10 +1,11 @@
 import express from "express";
 import getQuery from "./setup/db.setup";
-import { handleGetCats } from "./controllers/cat.controller";
+import bodyParser from "body-parser";
 import initRoutes from "./routers";
 
 const app: express.Application = express();
 
+app.use(bodyParser.json());
 initRoutes(app, getQuery(), () => express.Router());
 
 app.listen(process.env.PORT, () => {

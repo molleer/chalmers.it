@@ -13,7 +13,7 @@ const getQuery = (): queryFunction => {
     return (
         sql: string,
         values: Array<any>,
-        convertResult: Function = res => res
+        convertResult: (res: pg.QueryResult<any>) => any = res => res
     ) =>
         new Promise((resolve, reject) => {
             pool.query(sql, values)
