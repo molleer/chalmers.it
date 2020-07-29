@@ -17,3 +17,13 @@ export const queryCreatePost = (query: queryFunction, post: Post) =>
         ],
         res => res.rowCount > 0
     );
+
+export const queryGetPostById = (query: queryFunction, id: number) =>
+    query("SELECT * FROM post WHERE id=$1", [id], res => res.rows[0]);
+
+export const queryUpdatePost = (query: queryFunction, post: Post) =>
+    query(
+        "UPDATE post SET (title, body, url, image_urls) = ($1, $2, $3, $4) WHERE id=$5",
+        [post.title, post.body, post.url, post.image_urls, post.id],
+        res => res.rowCount > 0
+    );
