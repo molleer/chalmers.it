@@ -23,7 +23,7 @@ export const queryGetPostById = (query: queryFunction, id: number) =>
 
 export const queryUpdatePost = (query: queryFunction, post: Post) =>
     query(
-        "UPDATE post SET (title, body, url, image_urls) = ($1, $2, $3, $4) WHERE id=$5",
+        "UPDATE post SET (title, body, url, image_urls, updated_at) = ($1, $2, $3, $4, now()) WHERE id=$5",
         [post.title, post.body, post.url, post.image_urls, post.id],
         res => res.rowCount > 0
     );
