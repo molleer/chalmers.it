@@ -23,7 +23,9 @@ export const handleCreatePost = query => async (req: express.Request, res) => {
         return;
     }
 
-    const [err, ok] = await to(queryCreatePost(query, req.body));
+    const [err, ok] = await to(
+        queryCreatePost(query, { ...req.body, user_id: user.cid })
+    );
     err ? res.status(400).json(err) : res.status(201).json({ success: ok });
 };
 
