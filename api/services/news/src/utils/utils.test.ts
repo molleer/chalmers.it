@@ -39,4 +39,7 @@ describe("Testing the 'findImageUrls' frunction", () => {
         );
         assert.deepEqual(urls, ["https://cth.it", "https://chalmers.it"]);
     });
+    it("Should return nothing without error", () => {
+        assert.deepEqual([], findImageUrls(null));
+    });
 });

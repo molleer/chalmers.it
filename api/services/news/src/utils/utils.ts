@@ -3,6 +3,8 @@ export const to = <T>(promise: Promise<T>) => {
 };
 
 export const findImageUrls = (text: string): string[] => {
+    if (!text) return [];
+
     const urls: string[] = [];
     const iterator = text.matchAll(
         /!\[[^\]]*\]\((.*?)\s*("(?:.*[^"])")?\s*\)/g

@@ -1,4 +1,4 @@
-import { to } from "../utils/utils";
+import { to, findImageUrls } from "../utils/utils";
 import {
     queryGetPosts,
     queryCreatePost,
@@ -24,7 +24,11 @@ export const handleCreatePost = query => async (req: express.Request, res) => {
     }
 
     const [err, ok] = await to(
-        queryCreatePost(query, { ...req.body, user_id: user.cid })
+        queryCreatePost(query, {
+            ...req.body,
+            user_id: user.cid,
+            image_urls: findImageUrls(req.body.body)
+        })
     );
     err ? res.status(400).json(err) : res.status(201).json({ success: ok });
 };
@@ -41,7 +45,11 @@ export const handleUpdatePost = query => async (req: express.Request, res) => {
         return;
     }
     const [err, ok] = await to(
-        queryUpdatePost(query, { ...post, ...req.body })
+        queryUpdatePost(query, {
+            ...post,
+            ...req.body,
+            image_urls: findImageUrls(req.body.body || post.body)
+        })
     );
     err ? res.status(400).json(err) : res.status(201).json({ success: ok });
 };
