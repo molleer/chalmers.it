@@ -1,7 +1,7 @@
 import * as assert from "assert";
-import { to } from "./utils";
+import { to, findImageUrls } from "./utils";
 
-describe("Simple Math Test", () => {
+describe("Testing the 'to' method", () => {
     it("Should return 'Success'", async () => {
         const [_, res] = await to(
             new Promise((resolve, _) => {
@@ -18,5 +18,25 @@ describe("Simple Math Test", () => {
             })
         );
         assert.equal(err, error);
+    });
+});
+
+describe("Testing the 'findImageUrls' frunction", () => {
+    it("Should return one image url", () => {
+        var urls = findImageUrls(
+            "Lorem ipsum dolor sit amet, consectetur" +
+                "![alt-text](https://cth.it)" +
+                "Lorem ipsum dolor sit amet, consectetur"
+        );
+        assert.deepEqual(urls, ["https://cth.it"]);
+    });
+    it("Should return two image urls", () => {
+        var urls = findImageUrls(
+            "Lorem ipsum dolor sit amet, consectetur" +
+                "![alt-text](https://cth.it)" +
+                "Lorem ipsum dolor sit amet, consectetur" +
+                "![alt-text](https://chalmers.it)"
+        );
+        assert.deepEqual(urls, ["https://cth.it", "https://chalmers.it"]);
     });
 });
