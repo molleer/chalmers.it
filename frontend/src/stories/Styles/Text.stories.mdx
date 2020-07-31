@@ -1,14 +1,12 @@
-import React from "react";
-import { Heading, Title, Text } from "../cthit/common/styles/Text.styles";
+import { Meta, Story, Preview, Props } from "@storybook/addon-docs/blocks";
+import { Text } from "../../cthit/common/styles/Text.styles";
 
-export default {
-    title: "Styles"
-};
+<Meta title="Styles/Text" component={Text} />
 
-export const Texts = () => (
-    <>
-        <Heading>Informationsteknik Teknologsektionen</Heading>
-        <Title>digIT</Title>
+# Text
+
+<Preview>
+    <Story name="text">
         <Text>
             Lorem Ipsum is simply dummy text of the printing and typesetting
             industry. Lorem Ipsum has been the industry's standard dummy text
@@ -20,5 +18,7 @@ export const Texts = () => (
             and more recently with desktop publishing software like Aldus
             PageMaker including versions of Lorem Ipsum.
         </Text>
-    </>
-);
+    </Story>
+</Preview>
+
+<Props of={Text} />
