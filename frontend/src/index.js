@@ -2,13 +2,10 @@ import React from "react";
 import ReactDOM from "react-dom";
 import App from "./cthit/app";
 import * as serviceWorker from "./serviceWorker";
-import { DigitProviders } from "@cthit/react-digit-components";
 
 ReactDOM.render(
     <React.StrictMode>
-        <DigitProviders>
-            <App />
-        </DigitProviders>
+        <App />
     </React.StrictMode>,
     document.getElementById("root")
 );

@@ -3,7 +3,6 @@
     "version": "0.1.0",
     "private": true,
     "dependencies": {
-        "@cthit/react-digit-components": "1.0.2",
         "axios": "^0.19.2",
         "lodash": "^4.17.15",
         "react": "^16.13.1",
@@ -13,7 +12,7 @@
         "styled-components": "^5.1.1"
     },
     "scripts": {
-        "start": "react-scripts start",
+        "start": "BROWSER=none react-scripts start",
         "build": "react-scripts build",
         "storybook": "start-storybook --quiet -p 9009 -s public --docs",
         "build-storybook": "build-storybook -s public"
